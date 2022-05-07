@@ -1,34 +1,34 @@
-import React, { useState } from "react";
-import { Modal, Form, Button } from "react-bootstrap";
-import { toast } from "react-toastify";
-import { useContacts } from "../../context/ContactsProvider";
-import { useConversations } from "../../context/ConversationsProvider";
+import React, { useState } from 'react'
+import { Modal, Form, Button } from 'react-bootstrap'
+import { toast } from 'react-toastify'
+import { useContacts } from '../../context/ContactsProvider'
+import { useConversations } from '../../context/ConversationsProvider'
 
 export default function NewConversationModal({ closeModal }) {
-  const [selectedContactIds, setSelectedContactIds] = useState([]);
-  const { contacts } = useContacts();
-  const { createConversation } = useConversations();
+  const [selectedContactIds, setSelectedContactIds] = useState([])
+  const { contacts } = useContacts()
+  const { createConversation } = useConversations()
 
   function handleSubmit(e) {
-    e.preventDefault();
+    e.preventDefault()
     if (selectedContactIds.length === 0) {
-      toast.error("Add Atleast one contact");
-      return;
+      toast.error('Add At least one contact')
+      return
     }
-    createConversation(selectedContactIds);
-    closeModal();
+    createConversation(selectedContactIds)
+    closeModal()
   }
 
   function handleCheckboxChange(contactId) {
     setSelectedContactIds((prevSelectedContactIds) => {
       if (prevSelectedContactIds.includes(contactId)) {
         return prevSelectedContactIds.filter((prevId) => {
-          return contactId !== prevId;
-        });
+          return contactId !== prevId
+        })
       } else {
-        return [...prevSelectedContactIds, contactId];
+        return [...prevSelectedContactIds, contactId]
       }
-    });
+    })
   }
 
   return (
@@ -54,5 +54,5 @@ export default function NewConversationModal({ closeModal }) {
         </Form>
       </Modal.Body>
     </>
-  );
+  )
 }
