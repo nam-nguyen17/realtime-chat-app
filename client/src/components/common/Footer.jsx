@@ -9,15 +9,6 @@ const Footer = () => {
       >
         <div className="text-center text-light w-100">
           <p className="mb-0">
-            Designed Inspired from
-            <a
-              href="https://dribbble.com/shots/11893332-Dark-Theme-Chat-App"
-              className="px-2"
-              target={'_blank'}
-              rel="noopener noreferrer"
-            >
-              Muhammad Hunain
-            </a>
             Find code in
             <a
               href="https://github.com/nam-nguyen17/realtime-chat-app"
